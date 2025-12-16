@@ -9,25 +9,30 @@
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="019b263b-3cfe-737c-800b-ebbf068ade9f" ></script>
 <script type="text/javascript">
 function OptanonWrapper() { 
-  // List all the categories you want to manage
-  const categories = ['C0001', 'C0002', 'C0003', 'C0004', 'C0005'];
+  // Map of Category ID to CSS Selector for the corresponding iframe
+  const managedIframes = {
+    'C0001': '.optanon-category-C0001',
+    'C0002': '.optanon-category-C0002',
+    'C0003': '.optanon-category-C0003',
+    'C0004': '.optanon-category-C0004',
+    'C0005': '.optanon-category-C0005'
+  };
 
-  categories.forEach(catId => {
-    // Check if the current category is consented
+  // Iterate over all potential categories
+  for (const catId in managedIframes) {
     if (OnetrustActiveGroups.includes(catId)) {
-      // If consented, find all iframes that use that specific official class name
-      const selector = '.optanon-category-' + catId;
-      document.querySelectorAll(selector).forEach(iframe => {
+      // If the category is consented, find all matching iframes
+      document.querySelectorAll(managedIframes[catId]).forEach(iframe => {
         const src = iframe.getAttribute('data-src');
+        // Only load if the src hasn't already been set
         if (src && !iframe.getAttribute('src')) {
-          // Load the iframe
           iframe.setAttribute('src', src);
           iframe.style.display = 'block';
           iframe.style.visibility = 'visible';
         }
       });
     }
-  });
+  }
 }
 </script>
 <!-- OneTrust Cookies Consent Notice end for kosiyyu.github.io/iframe-test/ -->
