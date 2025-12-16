@@ -8,7 +8,27 @@
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/019b263b-3cfe-737c-800b-ebbf068ade9f/OtAutoBlock.js" ></script>
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="019b263b-3cfe-737c-800b-ebbf068ade9f" ></script>
 <script type="text/javascript">
-function OptanonWrapper() { }
+function OptanonWrapper() { 
+  // List all the categories you want to manage
+  const categories = ['C0001', 'C0002', 'C0003', 'C0004', 'C0005'];
+
+  categories.forEach(catId => {
+    // Check if the current category is consented
+    if (OnetrustActiveGroups.includes(catId)) {
+      // If consented, find all iframes that use that specific official class name
+      const selector = '.optanon-category-' + catId;
+      document.querySelectorAll(selector).forEach(iframe => {
+        const src = iframe.getAttribute('data-src');
+        if (src && !iframe.getAttribute('src')) {
+          // Load the iframe
+          iframe.setAttribute('src', src);
+          iframe.style.display = 'block';
+          iframe.style.visibility = 'visible';
+        }
+      });
+    }
+  });
+}
 </script>
 <!-- OneTrust Cookies Consent Notice end for kosiyyu.github.io/iframe-test/ -->
 
