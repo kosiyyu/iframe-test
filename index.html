@@ -7,34 +7,6 @@
 <!-- OneTrust Cookies Consent Notice start for kosiyyu.github.io/iframe-test/ -->
 <script type="text/javascript" src="https://cdn.cookielaw.org/consent/019b263b-3cfe-737c-800b-ebbf068ade9f/OtAutoBlock.js" ></script>
 <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="019b263b-3cfe-737c-800b-ebbf068ade9f" ></script>
-<script type="text/javascript">
-function OptanonWrapper() { 
-  // Map of Category ID to CSS Selector for the corresponding iframe
-  const managedIframes = {
-    'C0001': '.optanon-category-C0001',
-    'C0002': '.optanon-category-C0002',
-    'C0003': '.optanon-category-C0003',
-    'C0004': '.optanon-category-C0004',
-    'C0005': '.optanon-category-C0005'
-  };
-
-  // Iterate over all potential categories
-  for (const catId in managedIframes) {
-    if (OnetrustActiveGroups.includes(catId)) {
-      // If the category is consented, find all matching iframes
-      document.querySelectorAll(managedIframes[catId]).forEach(iframe => {
-        const src = iframe.getAttribute('data-src');
-        // Only load if the src hasn't already been set
-        if (src && !iframe.getAttribute('src')) {
-          iframe.setAttribute('src', src);
-          iframe.style.display = 'block';
-          iframe.style.visibility = 'visible';
-        }
-      });
-    }
-  }
-}
-</script>
 <!-- OneTrust Cookies Consent Notice end for kosiyyu.github.io/iframe-test/ -->
 
 </head>
@@ -44,8 +16,7 @@ function OptanonWrapper() {
 
   <iframe height="0" width="0" class="optanon-category-C0004"
     data-src="https://9076148.fls.doubleclick.net/activityi;src=9076148;type=audience;cat=pczb70;ord=3144470219229;npa=0;auiddc=1341369074.1764602999;u1=https%3A%2F%2Fzlatybazant.sk%2F;uaa=x86;uab=64;uafvl=Google%2520Chrome%3B143.0.7499.109%7CChromium%3B143.0.7499.109%7CNot%2520A(Brand%3B24.0.0.0;uamb=0;uam=;uap=Windows;uapv=15.0.0;uaw=0;pscdl=noapi;frm=0;_tu=KFA;gtm=45fe5ca1v9181645965z8810859984za20gzb810859984zd810859984xea;gcs=G111;gcd=13r3rPn2n5l1;dma_cps=syphamo;dma=1;dc_fmt=2;tag_exp=103116026~103200004~104527906~104528500~104684208~104684211~105391253~115583767~115938465~115938468~116184927~116184929~116251938~116251940;epver=2;dc_random=1765870854_M1VWaRcqCgkkB-t7B8yHBC8e0vkGpvUNpA;_dc_test=1;~oref=https%3A%2F%2Fzlatybazant.sk%2F?"
-    style="display: none; visibility: hidden;"
-    data-ot-prioritization="strict"> <!-- ADDED ATTRIBUTE HERE -->
+    style="display: none; visibility: hidden;">
   </iframe>
 
 </body>
